@@ -13,3 +13,6 @@ D:\vsproject\我的项目\TXDLL\WindowsFormsTest\bin\Debug\HtmlAgilityPack.pdb
 D:\vsproject\我的项目\TXDLL\WindowsFormsTest\bin\Debug\HtmlAgilityPack.xml
 D:\vsproject\我的项目\TXDLL\WindowsFormsTest\obj\Debug\WindowsFormsTest.WordForm.resources
 D:\vsproject\我的项目\TXDLL\WindowsFormsTest\obj\Debug\WindowsFormsTest.Form1.resources
+D:\vsproject\我的项目\TXDLL\TXDLL\WindowsFormsTest\bin\Debug\WindowsFormsTest.exe.config
+D:\vsproject\我的项目\TXDLL\TXDLL\WindowsFormsTest\obj\Debug\WindowsFormsTest.exe
+D:\vsproject\我的项目\TXDLL\TXDLL\WindowsFormsTest\obj\Debug\WindowsFormsTest.pdb
