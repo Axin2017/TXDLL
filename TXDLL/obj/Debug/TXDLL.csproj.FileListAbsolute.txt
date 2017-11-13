@@ -1,0 +1,11 @@
+D:\vsproject\我的项目\TXDLL\TXDLL\bin\Debug\TXDLL.dll
+D:\vsproject\我的项目\TXDLL\TXDLL\bin\Debug\TXDLL.pdb
+D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.dll
+D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.pdb
+D:\vsproject\公司项目\龙岩\龙岩出差\TXDLL\TXDLL\bin\Debug\TXDLL.dll
+D:\vsproject\公司项目\龙岩\龙岩出差\TXDLL\TXDLL\bin\Debug\TXDLL.pdb
+D:\vsproject\公司项目\龙岩\龙岩出差\TXDLL\TXDLL\obj\Debug\TXDLL.csprojResolveAssemblyReference.cache
+D:\vsproject\公司项目\龙岩\龙岩出差\TXDLL\TXDLL\obj\Debug\TXDLL.dll
+D:\vsproject\公司项目\龙岩\龙岩出差\TXDLL\TXDLL\obj\Debug\TXDLL.pdb
+D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.Winform.Control.TXTrayForm.resources
+D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.csproj.GenerateResource.Cache
