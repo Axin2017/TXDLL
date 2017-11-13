@@ -1,0 +1,1 @@
+git add . && git commit -m '增加一个自动更新的脚本' && git push origin master
