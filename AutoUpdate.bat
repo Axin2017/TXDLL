@@ -1,4 +1,4 @@
 git add . 
-git commit -m "æ›´æ–°ä¸€ä¸‹è‡ªåŠ¨æ›´æ–°è„šæœ¬"
+git commit -m "¸üĞÂÒ»ÏÂÎÄ¼ş"
 git push origin master
 pause
