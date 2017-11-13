@@ -63,6 +63,7 @@
     <Compile Include="Tools\DataTools.cs" />
     <Compile Include="Tools\FileTools.cs" />
     <Compile Include="Tools\PathTools.cs" />
+    <Compile Include="Tools\StringTools.cs" />
     <Compile Include="Tools\SystemTools.cs" />
     <Compile Include="Tools\ThreadTools.cs" />
     <Compile Include="Tools\WinFormTools.cs" />

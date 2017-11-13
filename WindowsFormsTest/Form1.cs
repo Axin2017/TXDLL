@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OracleClient;
 using System.Windows.Forms;
@@ -19,7 +20,10 @@ namespace WindowsFormsTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TXDLL.Tools.ThreadTools.StartVoidAsynThread(this, "staTest", null);
+            string ts = "123key145key208";
+            List<string> rsList = TXDLL.Tools.StringTools.CutStrBetweenTwoWordsOut(ts, "key1", "key");
+            string m = string.Join(",", rsList?.ToArray());
+            label1.Text = m;
         }
 
         private void priTest(string name,string sex)

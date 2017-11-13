@@ -8,6 +8,9 @@ namespace TXDLL.Tools
 {
     public class PathTools
     {
+        /// <summary>
+        /// 应用程序基目录
+        /// </summary>
         public static string AppRootPath
         {
             get
