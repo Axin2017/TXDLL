@@ -1,2 +1,2 @@
-git add . && git commit -m '鏇存柊涓�涓嬭嚜鍔ㄦ洿鏂扮殑鑴氭湰' && git push origin master
+git add . && git commit -m '更新一下自动更新脚本' && git push origin master
 pause
