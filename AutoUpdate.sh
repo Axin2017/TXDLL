@@ -1,1 +1,1 @@
-git add . && git commit -m '增加一个自动更新的脚本' && git push origin master
+git add . && git commit -m '鏇存柊涓�涓嬭嚜鍔ㄦ洿鏂扮殑鑴氭湰' && git push origin master
