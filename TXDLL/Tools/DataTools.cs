@@ -2,9 +2,6 @@
 
 namespace TXDLL.Tools
 {
-    /// <summary>
-    /// 数据操作工具
-    /// </summary>
     public class DataTools
     {
         /// <summary>

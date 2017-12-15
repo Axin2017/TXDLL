@@ -36,6 +36,7 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -66,6 +67,7 @@
     <Compile Include="Tools\StringTools.cs" />
     <Compile Include="Tools\SystemTools.cs" />
     <Compile Include="Tools\ThreadTools.cs" />
+    <Compile Include="Tools\WebConfigTools.cs" />
     <Compile Include="Tools\WinFormTools.cs" />
     <Compile Include="Tools\JsonTools.cs" />
     <Compile Include="Tools\KeyboardHookTools.cs" />
