@@ -1,17 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TXDLL.Data.Enums;
-using TXDLL.Data.Imp;
 using TXDLL.Data.Interface;
-using TXDLL.Tools;
 
 namespace TXDLL.Data
 {
+    internal class DbTypeRegInfo
+    {
+        public string ConnectStr { get; set; }
+        public DataBaseType DBType { get; set; }
+        public Type DBInstanceType { get; set; }
+        public DbTypeRegInfo(DataBaseType DBType, Type DBInstanceType, string ConnectStr)
+        {
+            this.DBType = DBType;
+            this.DBInstanceType = DBInstanceType;
+            this.ConnectStr = ConnectStr;
+        }
+    }
     public class DBFactory
     {
+
+        private static Dictionary<DataBaseType, DbTypeRegInfo> DataBaseTypeRegDic = new Dictionary<DataBaseType, DbTypeRegInfo>();
+
+        private static DbTypeRegInfo CurrentDataBase { get; set; }
+
+        /// <summary>
+        /// 注册相应的数据库类型
+        /// </summary>
+        /// <param name="dbType"></param>
+        /// <param name="classType"></param>
+        public static void RegisterDataBaseType(DataBaseType dbType, Type classType, string connectStr, bool setDefault)
+        {
+            DbTypeRegInfo dbInfo = new DbTypeRegInfo(dbType, classType, connectStr);
+            if (classType is IBaseDBOprator)
+            {
+                DataBaseTypeRegDic.Add(dbType, dbInfo);
+                if (setDefault)
+                {
+                    CurrentDataBase = dbInfo;
+                }
+            }
+            else
+            {
+                throw new TypeLoadException("The param 'classType' must be extended from IBaseDBOprator");
+            }
+        }
         /// <summary>
         /// 默认oracle
         /// </summary>
@@ -19,25 +52,9 @@ namespace TXDLL.Data
         /// <returns></returns>
         public static IBaseDBOprator GetDBOprator()
         {
-            string databaseType = AppConfigTools.GetAppSettingString("DatabaseType");
-            int tp = 1;//默认oracle
-            if (!string.IsNullOrEmpty(databaseType))
-            {
-                int.TryParse(databaseType, out tp);
-            }
-            return GetDBOprator((DataBaseType)tp);
+            return GetDBOprator(CurrentDataBase.DBType, CurrentDataBase.ConnectStr);
         }
 
-        public static IBaseDBOprator GetDBOprator(string connectStr)
-        {
-            string databaseType = AppConfigTools.GetAppSettingString("DatabaseType");
-            int tp = 1;//默认oracle
-            if (string.IsNullOrEmpty(databaseType))
-            {
-                int.TryParse(databaseType, out tp);
-            }
-            return GetDBOprator((DataBaseType)tp,connectStr);
-        }
         /// <summary>
         /// 选择数据库类型
         /// </summary>
@@ -45,23 +62,8 @@ namespace TXDLL.Data
         /// <returns></returns>
         public static IBaseDBOprator GetDBOprator(DataBaseType dbType)
         {
-            IBaseDBOprator db = null;
-            switch(dbType)
-            {
-                case DataBaseType.Oracle:
-                    db = new OracleDBOpretor();
-                    break;
-                case DataBaseType.SqlServer:
-                    break;
-                case DataBaseType.MySQL:
-                    break;
-                case DataBaseType.Access:
-                    break;
-                default:
-                    db = new OracleDBOpretor();
-                    break;
-            }
-            return db;
+
+            return GetDBOprator(dbType, DataBaseTypeRegDic[dbType].ConnectStr);
         }
         /// <summary>
         /// 
@@ -69,23 +71,12 @@ namespace TXDLL.Data
         /// <param name="dbType"></param>
         /// <param name="connectStr"></param>
         /// <returns></returns>
-        public static IBaseDBOprator GetDBOprator(DataBaseType dbType,string connectStr)
+        public static IBaseDBOprator GetDBOprator(DataBaseType dbType, string connectStr)
         {
             IBaseDBOprator db = null;
-            switch (dbType)
+            if (DataBaseTypeRegDic[dbType] != null)
             {
-                case DataBaseType.Oracle:
-                    db = new OracleDBOpretor(connectStr);
-                    break;
-                case DataBaseType.SqlServer:
-                    break;
-                case DataBaseType.MySQL:
-                    break;
-                case DataBaseType.Access:
-                    break;
-                default:
-                    db = new OracleDBOpretor(connectStr);
-                    break;
+                db = Activator.CreateInstance(DataBaseTypeRegDic[dbType].DBInstanceType, new object[] { connectStr }) as IBaseDBOprator;
             }
             return db;
         }
