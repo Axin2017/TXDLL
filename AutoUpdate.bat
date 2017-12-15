@@ -1,4 +1,4 @@
 git add . 
-git commit -m "忽略以前提交的不提交的东西"
+git commit -m "淇敼dbfactory閲岄潰鐨勪竴涓猙ug"
 git push origin master
 pause

@@ -34,7 +34,13 @@ namespace TXDLL.Data
             DbTypeRegInfo dbInfo = new DbTypeRegInfo(dbType, classType, connectStr);
             if (classType is IBaseDBOprator)
             {
-                DataBaseTypeRegDic.Add(dbType, dbInfo);
+                if (!DataBaseTypeRegDic.ContainsKey(dbType))
+                {
+                    DataBaseTypeRegDic.Add(dbType, dbInfo);
+                }else
+                {
+                    DataBaseTypeRegDic[dbType] = dbInfo;
+                }
                 if (setDefault)
                 {
                     CurrentDataBase = dbInfo;
