@@ -17,6 +17,9 @@ namespace TXDLL.Data
             this.ConnectStr = ConnectStr;
         }
     }
+    /// <summary>
+    /// 数据库工厂类
+    /// </summary>
     public class DBFactory
     {
 
@@ -32,7 +35,7 @@ namespace TXDLL.Data
         public static void RegisterDataBaseType(DataBaseType dbType, Type classType, string connectStr, bool setDefault)
         {
             DbTypeRegInfo dbInfo = new DbTypeRegInfo(dbType, classType, connectStr);
-            if (classType is IBaseDBOprator)
+            if (classType.GetInterface("IBaseDBOprator")!=null)
             {
                 if (!DataBaseTypeRegDic.ContainsKey(dbType))
                 {
@@ -52,23 +55,29 @@ namespace TXDLL.Data
             }
         }
         /// <summary>
-        /// 默认oracle
+        /// get default DBOprator
         /// </summary>
-        /// <param name="connectStr"></param>
         /// <returns></returns>
         public static IBaseDBOprator GetDBOprator()
         {
+            if (CurrentDataBase==null)
+            {
+                throw new Exception("There is no default DBOprator,please regist first");
+            }
             return GetDBOprator(CurrentDataBase.DBType, CurrentDataBase.ConnectStr);
         }
 
         /// <summary>
-        /// 选择数据库类型
+        /// get  DBOprator by DataBaseType
         /// </summary>
-        /// <param name="dbType"></param>
+        /// <param name="dbType">DataBaseType</param>
         /// <returns></returns>
         public static IBaseDBOprator GetDBOprator(DataBaseType dbType)
         {
-
+            if (!DataBaseTypeRegDic.ContainsKey(dbType))
+            {
+                throw new Exception(string.Format("There is no DataBaseType '{0}' finded,please regist first", dbType.ToString()));
+            }
             return GetDBOprator(dbType, DataBaseTypeRegDic[dbType].ConnectStr);
         }
         /// <summary>
@@ -86,5 +95,17 @@ namespace TXDLL.Data
             }
             return db;
         }
+
+        #region 默认注册的数据库操作类
+        /// <summary>
+        /// 注册默认提供的oracle操作类
+        /// </summary>
+        /// <param name="connectStr"></param>
+        /// <param name="setDefault"></param>
+        public static void RegisterDefaultOracleDb(string connectStr, bool setDefault)
+        {
+            RegisterDataBaseType(DataBaseType.Oracle, typeof(Imp.OracleDBOpretor), connectStr, setDefault);
+        }
+        #endregion
     }
 }

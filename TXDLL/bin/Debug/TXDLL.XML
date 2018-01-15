@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TXDLL</name>
+    </assembly>
+    <members>
+        <member name="T:TXDLL.Data.DBFactory">
+            <summary>
+            数据库工厂类
+            </summary>
+        </member>
+        <member name="M:TXDLL.Data.DBFactory.RegisterDataBaseType(TXDLL.Data.Enums.DataBaseType,System.Type,System.String,System.Boolean)">
+            <summary>
+            注册相应的数据库类型
+            </summary>
+            <param name="dbType"></param>
+            <param name="classType"></param>
+        </member>
+        <member name="M:TXDLL.Data.DBFactory.GetDBOprator">
+            <summary>
+            get default DBOprator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Data.DBFactory.GetDBOprator(TXDLL.Data.Enums.DataBaseType)">
+            <summary>
+            get  DBOprator by DataBaseType
+            </summary>
+            <param name="dbType">DataBaseType</param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Data.DBFactory.GetDBOprator(TXDLL.Data.Enums.DataBaseType,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dbType"></param>
+            <param name="connectStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Data.DBFactory.RegisterDefaultOracleDb(System.String,System.Boolean)">
+            <summary>
+            注册默认提供的oracle操作类
+            </summary>
+            <param name="connectStr"></param>
+            <param name="setDefault"></param>
+        </member>
+        <member name="T:TXDLL.Dictionary.AppSettingConfigKeys_Dic">
+            <summary>
+            在appsetting里面可以配置的项的key
+            </summary>
+        </member>
+        <member name="F:TXDLL.Dictionary.AppSettingConfigKeys_Dic.DatabaseType">
+            <summary>
+            数据库类型 数字 Oracle=1,SqlServer=2,MySQL=3,Access=4
+            </summary>
+        </member>
+        <member name="F:TXDLL.Dictionary.AppSettingConfigKeys_Dic.DefaultConnStr">
+            <summary>
+            默认的数据库连接字符串
+            </summary>
+        </member>
+        <member name="F:TXDLL.Dictionary.AppSettingConfigKeys_Dic.TimeOut">
+            <summary>
+            连接超时时间。单位毫秒
+            </summary>
+        </member>
+        <member name="P:TXDLL.Network.TimeOutClient.Timeout">
+            <summary>
+            超时时间(毫秒)
+            </summary>
+        </member>
+        <member name="T:TXDLL.Tools.AppConfigTools">
+            <summary>
+            程序配置文件操作工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.AppConfigTools.GetAppSettingString(System.String)">
+            <summary>
+            从AppConfig中获取值,不存在则返回""
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.AppConfigTools.UpdateOrInsertAppSettings(System.String,System.String)">
+            <summary>
+            更改AppSetting中的值，如果没有就新插入
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.ChinesePinYinTools.GetPinYinSZM(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="chinese">中文</param>
+            <returns></returns>
+        </member>
+        <member name="T:TXDLL.Tools.ComputerInfoTools">
+            <summary>
+            获取电脑硬件基本信息工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.ComputerInfoTools.GetCpuInfo">
+            <summary>
+               获取cpu序列号
+            </summary>
+            <returns> string </returns>
+        </member>
+        <member name="M:TXDLL.Tools.ComputerInfoTools.GetHDid">
+            <summary>
+               获取硬盘ID
+            </summary>
+            <returns> string </returns>
+        </member>
+        <member name="M:TXDLL.Tools.ComputerInfoTools.GetMoAddress">
+            <summary>
+               获取网卡硬件地址
+            </summary>
+            <returns> string </returns>
+        </member>
+        <member name="M:TXDLL.Tools.DataTools.DsIsNotNull(System.Data.DataSet)">
+            <summary>
+            判断ds是否不为空
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TXDLL.Tools.FileTools">
+            <summary>
+            文件操作工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.FileTools.ReadTextFromFile(System.String,System.Text.Encoding)">
+            <summary>
+            以特定的编码读取文本
+            </summary>
+            <param name="filepath"></param>
+            <param name="encoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.FileTools.WriteTextToFile(System.String,System.String,System.Boolean)">
+            <summary>
+            写字符串进文件
+            </summary>
+            <param name="text">要写进去的内容</param>
+            <param name="filePath">文件相对地址</param>
+            <param name="isAppend">是否追加，不是的话就直接替换</param>
+        </member>
+        <member name="P:TXDLL.Tools.PathTools.AppRootPath">
+            <summary>
+            应用程序基目录
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TXDLL.Tools.StringTools.CutStrBetweenTwoWordsOut(System.String,System.String,System.String)" -->
+        <member name="T:TXDLL.Tools.SystemTools">
+            <summary>
+            与系统有关的一些工具方法
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.SystemTools.SetProgramAutoRun(System.String,System.String)">
+            <summary>
+            设置程序开机自动运行
+            </summary>
+            <param name="keyName">程序标识</param>
+            <param name="filePath">程序路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.SystemTools.CancelProgramAutoRun(System.String)">
+            <summary>
+            取消程序开机自动运行
+            </summary>
+            <param name="keyName">程序标识</param>
+            <returns></returns>
+        </member>
+        <member name="T:TXDLL.Tools.ThreadTools">
+            <summary>
+            线程的一些辅助方法
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.WebConfigTools.GetAppSettingString(System.String)">
+            <summary>
+            从AppConfig中获取值,不存在则返回""
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.WebConfigTools.UpdateOrInsertAppSettings(System.String,System.String)">
+            <summary>
+            更改AppSetting中的值，如果没有就新插入
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TXDLL.Tools.WinFormTools">
+            <summary>
+            WindowsForm操作工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.WinFormTools.SetControlEnable_Asyn(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            异步设置控件可用
+            </summary>
+            <param name="control"></param>
+            <param name="enable"></param>
+        </member>
+        <member name="M:TXDLL.Tools.WinFormTools.AddTextToControl_Asyn(System.Windows.Forms.Control,System.String)">
+            <summary>
+            异步添加文本到控件
+            </summary>
+            <param name="control">要添加文本的控件</param>
+            <param name="text">添加的文本</param>
+        </member>
+        <member name="M:TXDLL.Tools.WinFormTools.AddTextToControl_Asyn(System.Windows.Forms.Control,System.String,System.String,System.String)">
+            <summary>
+            异步添加文本到控件
+            </summary>
+            <param name="control">要添加文本的控件</param>
+            <param name="text">添加的文本</param>
+            <param name="head">文本头，将被添加在文本前</param>
+            <param name="end">文本尾，将被添加在文本尾</param>
+        </member>
+        <member name="M:TXDLL.Tools.WinFormTools.UpdateControlText_Asyn(System.Windows.Forms.Control,System.String)">
+             <summary>
+            异步更新控件文本
+             </summary>
+             <param name="control">要更新文本的控件</param>
+             <param name="text">添加的文本</param>
+        </member>
+        <member name="M:TXDLL.Tools.WinFormTools.UpdateControlText_Asyn(System.Windows.Forms.Control,System.String,System.String,System.String)">
+             <summary>
+            异步更新控件文本
+             </summary>
+             <param name="control">要更新文本的控件</param>
+             <param name="text">添加的文本</param>
+             <param name="head">文本头，将被添加在文本前</param>
+             <param name="end">文本尾，将被添加在文本尾</param>
+        </member>
+        <member name="T:TXDLL.Tools.JsonTools">
+            <summary>
+            json转换工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.JsonTools.ObjectToJson(System.Object)">
+            <summary>
+            object转换为json
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.JsonTools.JsonStrToObject``1(System.String)">
+            <summary>
+            json转换为object
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.JsonTools.JSonStringToList``1(System.String)">
+            <summary>
+            jon转换为List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TXDLL.Tools.HookType">
+            <summary>
+            钩子种类
+            </summary>
+        </member>
+        <member name="T:TXDLL.Tools.KeyboardHookEvent">
+            <summary>
+            键盘钩子
+            </summary>
+        </member>
+        <member name="F:TXDLL.Tools.KeyboardHookEvent.WH_KEYBOARD_LL">
+            <summary>
+            线程键盘2，全局键盘13,线程鼠标7，全局鼠标14
+            </summary>
+        </member>
+        <member name="T:TXDLL.Tools.LogTools">
+            <summary>
+            日志操作工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.LogTools.WriteLog(System.String,System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="content">日志内容</param>
+            <param name="logType">日志类型，将会把日志放到类型文件夹下</param>
+        </member>
+        <member name="M:TXDLL.Tools.LogTools.WriteLog(System.String,System.String,System.String,System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="content">日志内容</param>
+            <param name="logType">日志类型，将会把日志放到类型文件夹下</param>
+            <param name="customPath">自定义路径，如果为空，则默认当前程序的根目录下Log文件夹内</param>
+            <param name="customName">自定义日志名，否则为“年-月-日.txt”</param>
+        </member>
+        <member name="M:TXDLL.Tools.LogTools.WriteEventLog(System.String,System.String,System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            写windows事件日志,注意：b/s程序不能直接使用
+            </summary>
+            <param name="logName"></param>
+            <param name="SourceName"></param>
+            <param name="LogText"></param>
+            <param name="type"></param>
+        </member>
+        <member name="T:TXDLL.Tools.MD5Tools">
+            <summary>
+            MD5工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.MD5Tools.MD5Encrypt16(System.String)">
+            <summary>
+            16位MD5加密
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.MD5Tools.MD5Encrypt32(System.String,System.String)">
+            <summary>
+            32位MD5加密
+            </summary>
+            <param name="password"></param>
+            <param name="XType">X或者x</param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.MD5Tools.MD5Encode(System.String,System.String,System.String)">
+            <summary>   
+            MD5加密
+            </summary>
+            <param name="originalStr">源字符串</param>
+            <param name="sKey">密钥</param>
+            <param name="XType">X或者x</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:TXDLL.Tools.MD5Tools.MD5Decode(System.String,System.String)">
+            <summary>
+            MD5解密
+            </summary>
+            <param name="resultStr">加密字符串</param>
+            <param name="sKey">密钥</param>
+            <returns>string</returns>
+        </member>
+        <member name="T:TXDLL.Tools.RandomTools">
+            <summary>
+            随机数或者随机字符串工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.RandomTools.GetRandomWord(System.Int32)">
+            <summary>
+            获得随机的特定长度的asc码 0-127字符串 
+            </summary>
+            <param name="count">字符串长度</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:TXDLL.Tools.RandomTools.GetUnid">
+            <summary>
+            获得32位随机码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TXDLL.Tools.XmlTools">
+            <summary>
+            Xml工具
+            </summary>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.GetXm(System.String,System.String)">
+            <summary>
+            获得XmlDocument对象。
+            </summary>
+            <param name="fileName">文件名，必须包含后缀</param>
+            <param name="customPath">文件自定义路径，为空默认为当前程序根目录下的ConfigXml文件夹中</param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.GetXml(System.String)">
+            <summary>
+            直接从特定位置加载xml文件
+            </summary>
+            <param name="filePath">完整路径,，必须包含后缀</param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.GetValueFromXml(System.Xml.XmlDocument,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            从xml中查询某个值.
+            </summary>
+            <param name="xmldoc">xml文档对象</param>
+            <param name="tagName">标签名字</param>
+            <param name="conditionName">条件名字</param>
+            <param name="conditionValue">条件的值</param>
+            <param name="conditionIsAttr">条件是否是属性(不是的话就是tag的innertText)</param>
+            <param name="result">要获得的值的名字</param>
+            <param name="resultIsAttr">要获得的是否是属性</param>
+            <returns></returns>
+        </member>
+        <member name="F:TXDLL.Winform.Control.TXTrayForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TXDLL.Winform.Control.TXTrayForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TXDLL.Winform.Control.TXTrayForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:TXDLL.Winform.Model.TXTrayAttribute.BalloonTipText">
+            <summary>
+            气泡显示的文字
+            </summary>
+        </member>
+        <member name="P:TXDLL.Winform.Model.TXTrayAttribute.BalloonTipTitle">
+            <summary>
+            气泡显示的标题
+            </summary>
+        </member>
+        <member name="P:TXDLL.Winform.Model.TXTrayAttribute.Text">
+            <summary>
+            鼠标移动上去显示的文字
+            </summary>
+        </member>
+        <member name="P:TXDLL.Winform.Model.TXTrayAttribute.Icon">
+            <summary>
+            托盘程序图标
+            </summary>
+        </member>
+    </members>
+</doc>

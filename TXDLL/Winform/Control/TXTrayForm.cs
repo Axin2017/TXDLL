@@ -77,7 +77,6 @@ namespace TXDLL.Winform.Control
         private void TXShowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.TXNormalForm();
-            MessageBox.Show("ss");
         }
 
         private void TXExitToolStripMenuItem_Click(object sender, EventArgs e)
