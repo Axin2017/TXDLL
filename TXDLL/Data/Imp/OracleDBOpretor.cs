@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Data.Common;
 using System.Data.OracleClient;
 using System.Reflection;
 using TXDLL.Data.Interface;
@@ -10,7 +8,7 @@ using TXDLL.Tools;
 
 namespace TXDLL.Data.Imp
 {
-    class OracleDBOpretor : IBaseDBOprator
+    internal class OracleDBOpretor : IBaseDBOprator
     {
         private OracleConnection _connection;
         private string _connectStr;
@@ -261,7 +259,19 @@ namespace TXDLL.Data.Imp
             conn.Close();
             return ds;
         }
-
+        public object SelectObjBySql(string sql)
+        {
+            return SelectObjBySql(sql, null);
+        }
+        public object SelectObjBySql(string sql, IDbConnection conn)
+        {
+            DataSet ds = SelectDsBySql(sql, conn);
+            if (DataTools.DsIsNotNull(ds))
+            {
+                return ds.Tables[0].Rows[0][0];
+            }
+            return null;
+        }
         private void CheckConnState()
         {
             IDbConnection conn = null;
@@ -326,5 +336,6 @@ namespace TXDLL.Data.Imp
                 conn.Close();
             }
         }
+
     }
 }

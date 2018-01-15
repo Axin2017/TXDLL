@@ -28,10 +28,12 @@ namespace TXDLL.Data
         private static DbTypeRegInfo CurrentDataBase { get; set; }
 
         /// <summary>
-        /// 注册相应的数据库类型
+        /// 注释数据库类型对应的操作类
         /// </summary>
-        /// <param name="dbType"></param>
-        /// <param name="classType"></param>
+        /// <param name="dbType">DataBaseType</param>
+        /// <param name="classType">实现IBaseDBOprator的类</param>
+        /// <param name="connectStr">连接字符串</param>
+        /// <param name="setDefault">是否设置为默认</param>
         public static void RegisterDataBaseType(DataBaseType dbType, Type classType, string connectStr, bool setDefault)
         {
             DbTypeRegInfo dbInfo = new DbTypeRegInfo(dbType, classType, connectStr);
@@ -55,7 +57,7 @@ namespace TXDLL.Data
             }
         }
         /// <summary>
-        /// get default DBOprator
+        /// 获取注册过的并且设置为默认数据库操作类
         /// </summary>
         /// <returns></returns>
         public static IBaseDBOprator GetDBOprator()
@@ -68,7 +70,7 @@ namespace TXDLL.Data
         }
 
         /// <summary>
-        /// get  DBOprator by DataBaseType
+        /// 根据注册的数据库类型获取相应的操作类
         /// </summary>
         /// <param name="dbType">DataBaseType</param>
         /// <returns></returns>
@@ -81,10 +83,10 @@ namespace TXDLL.Data
             return GetDBOprator(dbType, DataBaseTypeRegDic[dbType].ConnectStr);
         }
         /// <summary>
-        /// 
+        /// 根据注册的数据库类型获取相应的操作类
         /// </summary>
-        /// <param name="dbType"></param>
-        /// <param name="connectStr"></param>
+        /// <param name="dbType">DataBaseType</param>
+        /// <param name="connectStr">数据库连接字符串</param>
         /// <returns></returns>
         public static IBaseDBOprator GetDBOprator(DataBaseType dbType, string connectStr)
         {
@@ -100,8 +102,8 @@ namespace TXDLL.Data
         /// <summary>
         /// 注册默认提供的oracle操作类
         /// </summary>
-        /// <param name="connectStr"></param>
-        /// <param name="setDefault"></param>
+        /// <param name="connectStr">数据库连接字符串</param>
+        /// <param name="setDefault">是否设置为默认数据库操作类</param>
         public static void RegisterDefaultOracleDb(string connectStr, bool setDefault)
         {
             RegisterDataBaseType(DataBaseType.Oracle, typeof(Imp.OracleDBOpretor), connectStr, setDefault);
