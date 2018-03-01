@@ -15,7 +15,9 @@ namespace TXDLL.Winform.Control
 {
     public partial class TXTrayForm : Form
     {
-
+        /// <summary>
+        /// 带有托盘的winform
+        /// </summary>
         public TXTrayForm()
         {
             InitializeComponent();
@@ -29,12 +31,28 @@ namespace TXDLL.Winform.Control
             SetTrayAttribute(attr);
 
         }
+        /// <summary>
+        /// 设置托盘图标属性
+        /// </summary>
+        /// <param name="attr"></param>
         protected  void SetTrayAttribute(TXTrayAttribute attr)
         {
             this.TXNotifyIcon.BalloonTipText = attr.BalloonTipText;
             this.TXNotifyIcon.BalloonTipTitle = attr.BalloonTipTitle;
             this.TXNotifyIcon.Text = attr.Text;
             this.TXNotifyIcon.Icon = attr.Icon;
+        }
+        /// <summary>
+        /// 气泡提示
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
+        /// <param name="millisecond"></param>
+        protected void ShowBalloonTip(string title,string content, int millisecond)
+        {
+            TXNotifyIcon.BalloonTipText = content;
+            TXNotifyIcon.BalloonTipTitle = title;
+            TXNotifyIcon.ShowBalloonTip(millisecond);//显示气泡提示，参数为显示时间
         }
         #region 托盘相关
         private void TXNotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)

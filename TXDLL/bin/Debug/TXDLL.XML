@@ -563,26 +563,26 @@
             Xml工具
             </summary>
         </member>
-        <member name="M:TXDLL.Tools.XmlTools.GetXm(System.String,System.String)">
+        <member name="M:TXDLL.Tools.XmlTools.GetXmlByName(System.String,System.String)">
             <summary>
             获得XmlDocument对象。
             </summary>
-            <param name="fileName">文件名，必须包含后缀</param>
+            <param name="xmlPath">文件名，必须包含后缀</param>
             <param name="customPath">文件自定义路径，为空默认为当前程序根目录下的ConfigXml文件夹中</param>
             <returns></returns>
         </member>
-        <member name="M:TXDLL.Tools.XmlTools.GetXml(System.String)">
+        <member name="M:TXDLL.Tools.XmlTools.GetXmlByPath(System.String)">
             <summary>
             直接从特定位置加载xml文件
             </summary>
-            <param name="filePath">完整路径,，必须包含后缀</param>
+            <param name="xmlPath">完整路径,，必须包含后缀</param>
             <returns></returns>
         </member>
-        <member name="M:TXDLL.Tools.XmlTools.GetValueFromXml(System.Xml.XmlDocument,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean)">
+        <member name="M:TXDLL.Tools.XmlTools.GetValueFromXml(System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean)">
             <summary>
             从xml中查询某个值.
             </summary>
-            <param name="xmldoc">xml文档对象</param>
+            <param name="xmlPath">xml文档路径</param>
             <param name="tagName">标签名字</param>
             <param name="conditionName">条件名字</param>
             <param name="conditionValue">条件的值</param>
@@ -590,6 +590,62 @@
             <param name="result">要获得的值的名字</param>
             <param name="resultIsAttr">要获得的是否是属性</param>
             <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.GetValueFromXml(System.Xml.XmlDocument,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="xmldoc"></param>
+            <param name="tagName"></param>
+            <param name="conditionName"></param>
+            <param name="conditionValue"></param>
+            <param name="conditionIsAttr"></param>
+            <param name="result"></param>
+            <param name="resultIsAttr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.GetInnerTextByUniqueTagName(System.String,System.String)">
+            <summary>
+            获取唯一标签的文本内容
+            </summary>
+            <param name="xmlPath"></param>
+            <param name="tagName">标签名</param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.GetInnerTextByUniqueTagName(System.Xml.XmlDocument,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xmldoc"></param>
+            <param name="tagName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TXDLL.Tools.XmlTools.UpdateInnerTextByUniqueTagName(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xmlPath"></param>
+            <param name="tagName"></param>
+            <param name="innertText"></param>
+        </member>
+        <member name="M:TXDLL.Winform.Control.TXTrayForm.#ctor">
+            <summary>
+            带有托盘的winform
+            </summary>
+        </member>
+        <member name="M:TXDLL.Winform.Control.TXTrayForm.SetTrayAttribute(TXDLL.Winform.Model.TXTrayAttribute)">
+            <summary>
+            设置托盘图标属性
+            </summary>
+            <param name="attr"></param>
+        </member>
+        <member name="M:TXDLL.Winform.Control.TXTrayForm.ShowBalloonTip(System.String,System.String,System.Int32)">
+            <summary>
+            气泡提示
+            </summary>
+            <param name="title"></param>
+            <param name="content"></param>
+            <param name="millisecond"></param>
         </member>
         <member name="F:TXDLL.Winform.Control.TXTrayForm.components">
             <summary>

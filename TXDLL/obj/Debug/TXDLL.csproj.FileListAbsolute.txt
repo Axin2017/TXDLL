@@ -10,4 +10,3 @@ D:\vsproject\公司项目\龙岩\龙岩出差\TXDLL\TXDLL\obj\Debug\TXDLL.pdb
 D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.Winform.Control.TXTrayForm.resources
 D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.csproj.GenerateResource.Cache
 D:\vsproject\我的项目\TXDLL\TXDLL\bin\Debug\TXDLL.XML
-D:\vsproject\我的项目\TXDLL\TXDLL\obj\Debug\TXDLL.csprojResolveAssemblyReference.cache
